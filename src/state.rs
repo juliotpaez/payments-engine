@@ -26,7 +26,7 @@ impl AppState {
             .entry(transaction.client)
             .or_insert_with(|| ClientAccount::new(transaction.client));
 
-        // When an account is locked, we should ignore every other operation but in some cases,
+        // When an account is locked, we should ignore any other operation but in some cases,
         // like in crypto, someone can send you funds to your account without your permission or any
         // other kind of control. Therefore, I ignore everything BUT deposits.
         if account.locked && !matches!(transaction.kind, TransactionType::Deposit) {

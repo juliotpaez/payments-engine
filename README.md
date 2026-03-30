@@ -29,6 +29,12 @@ the dispute is resolved.
 I opted to allow negative balances in the system because it reflects the real-world scenario of disputes and their
 impact on account balances.
 
+## Deposits on locked accounts
+
+When an account is locked, we should ignore any other operation but in some cases, like in crypto, someone can send you
+funds to your account without your permission or any other kind of control. Therefore, even if the account is locked,
+I decided to allow deposits to be processed, so this matches that real-world scenario.
+
 ## Past transactions
 
 I store all past transactions in a map in memory for simplicity. In a real-world application, I would use a database to
